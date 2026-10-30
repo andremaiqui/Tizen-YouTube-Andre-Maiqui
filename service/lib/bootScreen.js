@@ -55,7 +55,8 @@ body { color: #aaaaaa; font-family: monospace; font-size: 19px; line-height: 29p
 .ok { color: #55ff55; }
 .warn { color: #ffff55; }
 .bad { color: #ff5555; }
-.note { color: #55ffff; }`;
+.note { color: #55ffff; }
+#cover { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #000000; z-index: 2147483647; }`;
 
 const page = (script, config) => `<!DOCTYPE html>
 <html>
@@ -69,6 +70,7 @@ ${STYLE}
 </head>
 <body>
 <div id="log"></div>
+<div id="cover"></div>
 <script>window.TUBE_BOOT = ${JSON.stringify(config)};</script>
 <script>
 ${script}

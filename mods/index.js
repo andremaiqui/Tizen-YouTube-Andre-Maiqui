@@ -5,7 +5,6 @@ import { start as startNetwork } from './network/originRewrite.js';
 import { start as startSettings } from './settings/nativeSettings.js';
 import { start as startShell } from './shell/startup.js';
 import { start as startPage } from './shell/startPage.js';
-import { start as startVoiceCapability } from './shell/voiceCapability.js';
 import { start as startScrollSpeed } from './scroller/speed.js';
 import { start as startRapidPress } from './scroller/rapidPress.js';
 import { start as startSmoothNavigation } from './scroller/smoothNavigation.js';
@@ -44,7 +43,6 @@ register('scroll speed', 'ui', startScrollSpeed);
 register('rapid press', 'ui', startRapidPress);
 register('smooth navigation', 'ui', startSmoothNavigation);
 register('playback speed', 'ui', startSpeed);
-register('voice capability', 'ui', startVoiceCapability);
 
 // Taking over JSON.parse seals registration.
 register('json', 'intercept', interceptJson);

@@ -5,7 +5,7 @@ holds: a directory is a module, and its `index.js` — where it has one — is t
 anything outside may import.
 
 ```
-app/          config.xml · index.html · icon.png    what the .wgt is made of
+app/          config.xml · index.html · icon.png · icon_square.png    what the .wgt is made of
 framework/    the patch framework — knows YouTube, never knows a feature
   framework/registries/   the traversal/registration machinery — see the table below
   framework/runtime/      config, flags, switches, waitFor — state read while the app runs

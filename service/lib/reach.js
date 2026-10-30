@@ -34,7 +34,8 @@ const settle = (ok, why) => {
 const ask = () => {
     const client = TARGET.protocol === 'http:' ? require('http') : require('https');
     const request = client.request({
-        protocol: TARGET.protocol, hostname: TARGET.hostname, port: TARGET.port, path: TARGET.path, method: 'HEAD'
+        protocol: TARGET.protocol, hostname: TARGET.hostname, port: TARGET.port, path: TARGET.path, method: 'HEAD',
+        family: 4
     }, (response) => {
         response.resume();
         settle(true, `answered ${response.statusCode}`);

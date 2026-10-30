@@ -75,7 +75,8 @@ const attach = (server, options) => {
             headers: headersFor(req, target),
             // This socket stops being an HTTP connection the moment it upgrades, and an agent
             // would reuse it underneath a live session.
-            agent: false
+            agent: false,
+            family: 4
         });
 
         outgoing.on('socket', hold);

@@ -11,7 +11,7 @@ const bigheaders = require('./bigheaders.js');
 const MOST_SOCKETS = 64;
 
 // No socket timeout: a paused SABR stream is an idle socket, and a timeout would cut playback.
-const AGENT_OPTIONS = { keepAlive: true, keepAliveMsecs: 15000, maxSockets: MOST_SOCKETS };
+const AGENT_OPTIONS = { keepAlive: true, keepAliveMsecs: 15000, maxSockets: MOST_SOCKETS, family: 4 };
 const httpsAgent = new https.Agent(AGENT_OPTIONS);
 const httpAgent = new http.Agent(AGENT_OPTIONS);
 const agentFor = (url) => (String(url).indexOf('https:') === 0 ? httpsAgent : httpAgent);

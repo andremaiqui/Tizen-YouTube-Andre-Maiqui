@@ -16,18 +16,23 @@ const ILLEGAL_IN_H2 = ['connection', 'keep-alive', 'proxy-connection', 'transfer
 // A session per request would cost a handshake apiece.
 const sessions = new Map();
 
-const sessionFor = (origin) => {
-    const existing = sessions.get(origin);
+// IPv4 first: a TV on a network with a broken IPv6 route stalls on the AAAA address. A host with no
+// IPv4 route at all is retried on any family (see fetchOverHttp2), under its own session key.
+const sessionFor = (origin, anyFamily) => {
+    const key = anyFamily ? `${origin}#any` : origin;
+    const existing = sessions.get(key);
     if (existing && !existing.closed && !existing.destroyed) return existing;
 
-    const session = http2.connect(origin, { settings: { maxHeaderListSize: MAX_HEADER_LIST } });
-    const forget = () => { if (sessions.get(origin) === session) sessions.delete(origin); };
+    const session = http2.connect(origin, anyFamily
+        ? { settings: { maxHeaderListSize: MAX_HEADER_LIST }, family: 0, autoSelectFamily: true }
+        : { settings: { maxHeaderListSize: MAX_HEADER_LIST }, family: 4 });
+    const forget = () => { if (sessions.get(key) === session) sessions.delete(key); };
 
     session.setTimeout(SESSION_IDLE, () => session.close());
     session.on('error', forget);
     session.on('close', forget);
 
-    sessions.set(origin, session);
+    sessions.set(key, session);
     return session;
 };
 
@@ -80,11 +85,33 @@ const decoded = (request, encoding) => {
     return out;
 };
 
-const fetchOverHttp2 = (target, options) => new Promise((resolve, reject) => {
+// Errors that mean there is no IPv4 route to the host, so the IPv4-only attempt is worth repeating.
+const NO_V4_ROUTE = [
+    'ENETUNREACH', 'EHOSTUNREACH', 'EADDRNOTAVAIL', 'ENOTFOUND', 'EAFNOSUPPORT',
+    'EAI_ADDRFAMILY', 'EAI_NODATA', 'EAI_NONAME'
+];
+
+// Follows error.cause up to four deep, since the route failure is often wrapped.
+const causedByNoV4Route = (error, depth) => !!error && depth < 4
+    && (NO_V4_ROUTE.indexOf(error.code) !== -1
+        || NO_V4_ROUTE.indexOf(error.errno) !== -1
+        || causedByNoV4Route(error.cause, depth + 1));
+
+const noV4Route = (error) => causedByNoV4Route(error, 0)
+    || /EHOSTUNREACH|ENETUNREACH|ENOTFOUND|EAI_NODATA/.test(String((error && error.message) || ''));
+
+const fetchOverHttp2 = (target, options, anyFamily) => new Promise((resolve, reject) => {
     const parsed = URL.parse(target);
     if (!parsed.host) return reject(new Error(`not a URL this can fetch: ${target}`));
 
-    const session = sessionFor(`https://${parsed.host}`);
+    const session = sessionFor(`https://${parsed.host}`, anyFamily);
+
+    if (!anyFamily) {
+        const giveUp = reject;
+        reject = (error) => (noV4Route(error)
+            ? fetchOverHttp2(target, options, true).then(resolve, giveUp)
+            : giveUp(error));
+    }
 
     const headers = Object.fromEntries(Object.entries(options.headers || {})
         .filter(([name]) => ILLEGAL_IN_H2.indexOf(name) === -1));

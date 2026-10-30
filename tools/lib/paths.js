@@ -19,6 +19,7 @@ const WGT_LEGACY = 'release/tube-tizen-5.0.wgt';
 const WIDGET = [
     { from: 'app/config.xml', to: 'config.xml' },
     { from: 'app/icon.png', to: 'icon.png' },
+    { from: 'app/icon_square.png', to: 'icon_square.png' },
     { from: 'app/index.html', to: 'index.html' },
     { from: 'service/dist', to: 'service/dist' }
 ];
