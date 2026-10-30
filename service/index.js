@@ -13,6 +13,7 @@ printed.attach();
 const ports = require('./lib/ports.js');
 const { USER_SCRIPT, sized } = require('./lib/shipped.js');
 const proxy = require('./lib/proxy.js');
+const sending = require('./lib/sending.js');
 const { STAMP } = require('./lib/stamp.js');
 const { capability } = require('./lib/platform.js');
 const claimants = require('./lib/claimants.js');
@@ -155,6 +156,34 @@ const listen = (addresses, index) => {
         return setTimeout(() => listen(candidates(), 0), RETRY_LISTEN_AFTER);
     });
 };
+
+// A Wi-Fi that drops, or hands the set a new address, leaves every open connection to YouTube dead
+// without telling anyone: the next request on each waits out its own timeout, and a video freezes.
+// The set's addresses are compared a little after the fact, which is soon enough.
+const NETWORK_POLL = 2000;
+
+const watchNetwork = () => {
+    const shown = (key) => key.replace(BIND, '').replace(/^,/, '') || 'none';
+    const held = { key: candidates().join(',') };
+
+    const timer = setInterval(() => {
+        try {
+            const key = candidates().join(',');
+            if (key === held.key) return;
+
+            postmortem.note('network', `addresses changed (${shown(held.key)} → ${shown(key)}): `
+                + 'dropping the connections to youtube');
+            held.key = key;
+            sending.dropAll();
+        } catch (error) {
+            postmortem.note('network', postmortem.describe(error));
+        }
+    }, NETWORK_POLL);
+
+    if (timer.unref) timer.unref();
+};
+
+watchNetwork();
 
 const holdFor = dev.startDelay();
 if (holdFor) postmortem.note('listen', `held shut for ${holdFor / 1000}s by TUBE_START_DELAY`);

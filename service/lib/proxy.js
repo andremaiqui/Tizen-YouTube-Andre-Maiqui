@@ -8,7 +8,7 @@ const postmortem = require('./postmortem.js');
 const protection = require('./protection.js');
 const containerAgent = require('./containerAgent.js');
 const { upstream } = require('./knobs.js');
-const { localOrigin, proxyPrefix } = require('./origin.js');
+const { localOrigin, proxyPrefix, noteHost } = require('./origin.js');
 const { YOUTUBE_ORIGIN, routeFor, headersFor } = require('./route.js');
 const { readText, send } = require('./sending.js');
 const {
@@ -46,6 +46,9 @@ const create = () => {
     const app = express();
 
     app.use((req, res, next) => {
+        // The page's own address is whatever it was loaded from; every link rewritten for it follows.
+        if (/^\/tv(?:[?#]|$)/.test(String(req.url))) noteHost(req.headers.host);
+
         // Ahead of the guard below, which stops once enough has been traced.
         const agent = req.headers['user-agent'];
         if (containerAgent.remember(agent)) postmortem.note('cobalt', `agent: ${agent}`);

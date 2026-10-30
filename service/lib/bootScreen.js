@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ports = require('./ports.js');
-const { lanAddresses, serviceAddress } = require('./serviceAddress.js');
+const { lanAddresses } = require('./serviceAddress.js');
 const { SCREEN } = require('./pageLines.js');
 const { STAMP } = require('./stamp.js');
 const { DISCORD, REPO } = require('./links.js');
@@ -19,9 +19,15 @@ const YOUTUBE = 'https://www.youtube.com';
 
 const origin = (address) => `http://${address}:${ports.PROXY}`;
 
-// Tried when the chosen address does not answer, to tell a blocked address from a dead service.
+// The page is handed to the loopback address the 5.0 widget already opens (127.0.0.2). Tizen blocks
+// 127.0.0.1 between apps but lets the rest of 127.x through, and a loopback address stays up when
+// the Wi-Fi drops or the set joins another network, which the address of the Wi-Fi itself does not.
+const STABLE_HOST = '127.0.0.2';
+
+// Tried when the chosen address does not answer, to tell a blocked address from a dead service. The
+// set's own addresses are what the page used before, so they remain the way out of a blocked loopback.
 const alternates = () => ['127.0.0.1'].concat(lanAddresses())
-    .filter((address) => address !== serviceAddress())
+    .filter((address) => address !== STABLE_HOST)
     .map(origin);
 
 const HELP = { discord: DISCORD, repo: REPO };
@@ -30,11 +36,11 @@ const HELP = { discord: DISCORD, repo: REPO };
 const onTheLan = (route) => `http://${lanAddresses()[0] || '127.0.0.1'}:${ports.PROXY}${route}`;
 
 const configFor = () => ({
-    service: origin(serviceAddress()),
+    service: origin(STABLE_HOST),
     alternates: alternates(),
     // Served by us rather than fetched from YouTube: there is no proxy to intercept the real host.
-    target: `${origin(serviceAddress())}/tv`,
-    probeUrl: `${origin(serviceAddress())}/__tube/ping`,
+    target: `${origin(STABLE_HOST)}/tv`,
+    probeUrl: `${origin(STABLE_HOST)}/__tube/ping`,
     screen: SCREEN,
     journal: onTheLan('/__tube/log'),
     diag: onTheLan('/diag'),
@@ -45,7 +51,7 @@ const configFor = () => ({
 // Cobalt refuses whatever the policy omits, navigation included.
 const policyFor = (config) => `default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; `
     + `connect-src ${[config.service].concat(config.alternates).join(' ')} ${YOUTUBE}; `
-    + `h5vcc-location-src ${YOUTUBE} ${config.service}`;
+    + `h5vcc-location-src ${[YOUTUBE, config.service].concat(config.alternates).join(' ')}`;
 
 const STYLE = `html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background-color: #000000; }
 body { color: #aaaaaa; font-family: monospace; font-size: 19px; line-height: 29px; }
@@ -93,4 +99,4 @@ const writeBootScreen = (content, script) => {
     return file;
 };
 
-module.exports = { BOOT_URL, html, writeBootScreen };
+module.exports = { BOOT_URL, STABLE_HOST, html, writeBootScreen };

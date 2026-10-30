@@ -144,4 +144,16 @@ const fetchOverHttp2 = (target, options, anyFamily) => new Promise((resolve, rej
 const isHeaderOverflow = (error) => !!error
     && (error.code === 'HPE_HEADER_OVERFLOW' || /header overflow/i.test(error.message || ''));
 
-module.exports = { fetchOverHttp2, isHeaderOverflow };
+// Every session belonged to a network that is gone: a dead one looks open until its own timeout.
+const reset = () => {
+    Array.from(sessions.values()).forEach((session) => {
+        try {
+            session.destroy();
+        } catch (error) {
+            // Already closed.
+        }
+    });
+    sessions.clear();
+};
+
+module.exports = { fetchOverHttp2, isHeaderOverflow, reset };

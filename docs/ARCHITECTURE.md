@@ -128,6 +128,19 @@ Two build-time gates, one per side.
   - If that answer fails three times, it asks the service, once, to start the container again.
     That is what a certificate issued during the container's life needs.
   - Otherwise it stays on the log and says in red what it waits on.
+- The boot screen hands the page over at `http://127.0.0.2:8099/tv`, the loopback address the 5.0
+  widget already opens, rather than at the set's own address. Tizen blocks 127.0.0.1 between apps but
+  lets the rest of 127.x through, and a loopback address stays up when the Wi-Fi drops or the set joins
+  another network, which the address of the Wi-Fi itself does not: a page served from that one is cut
+  off from the service for good the moment the lease changes. 127.0.0.1 and the set's addresses stay as
+  fallbacks, and the screen takes whichever answers. `service/lib/origin.js` rewrites the page for the
+  `Host` of its `/tv` request, so a fallback is served as before.
+- A change of the set's addresses is noticed within two seconds (`service/index.js`), noted as
+  `network: addresses changed (…)`, and every open connection to YouTube is dropped, in use or not,
+  http2 sessions included. A connection a Wi-Fi change killed gives no error, only a wait. A request that
+  fails on a reused socket, or gets no headers in 20 seconds, throws the idle ones away and is sent again
+  on a fresh IPv4 connection. A POST is sent again only while its body is small enough (256 KB) to have
+  been held in memory; a larger one is streamed and can only go once.
 - A container's claim window counts from when the service starts listening, not from the wake.
 - A dev build with `TUBE_START_DELAY=<ms>` holds the port shut, so the race can be reproduced.
 - `/__tube/log` is the journal: one continuous log from the service's start on, rotated file
