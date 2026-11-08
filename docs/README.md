@@ -1,7 +1,8 @@
 Use this Installer - https://github.com/Apps2Samsung/Apps2Samsung
 
-Sobre o projeto
-O Tizen YouTube - Andre Maiqui é uma versão personalizada do
+Sobre o projeto 
+
+O "Tizen YouTube - Andre Maiqui" é uma versão personalizada do
 aplicativo YouTube para Smart TVs Samsung com Tizen. O projeto reúne
 ajustes e patches voltados a melhorar a experiência de utilização na
 televisão, preservando a proposta visual e o funcionamento familiar do
