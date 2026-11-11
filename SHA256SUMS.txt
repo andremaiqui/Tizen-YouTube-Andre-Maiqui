@@ -1,0 +1,2 @@
+1bcc0e571cf7aa41b13e79611e9f08aa824499558bfeb923d906a2cd47e4d553  releases/TizenTube-v1.2-W50-corrigido.wgt
+974e08f6165f8f6592598193675dd28c94e895f3634f3de97266b295fb81bc27  releases/TizenTube-v1.2-W55-corrigido.wgt
