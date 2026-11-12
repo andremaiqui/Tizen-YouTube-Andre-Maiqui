@@ -14,6 +14,8 @@ Google ou Samsung. YouTube é uma marca de seus respectivos titulares.
 
 Principais modificações
 
+🚫 Remove todos os anúncios e propagandas do YouTube e deixa a interface limpa e fluída.
+
 🌐 Estabilidade de internet e rede
 
 O patch reúne ajustes voltados à confiabilidade da conexão e ao
