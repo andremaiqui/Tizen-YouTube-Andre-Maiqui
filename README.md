@@ -1,3 +1,9 @@
+👍 Contribuições
+
+Se você gosta dos meus projetos, considere fazer uma pequena doação.
+
+Chave pix ❖ {08d75e71-0bb9-41d4-b249-d7acadf8c72f}
+
 Use this installer - https://github.com/Apps2Samsung/Apps2Samsung
 
 Sobre o projeto
