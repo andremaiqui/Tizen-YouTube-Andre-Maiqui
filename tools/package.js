@@ -20,7 +20,7 @@ const APPS = [
         requiredVersion: '5.0',
         servedFrom: `http://127.0.0.2:${PROXY}/tv`,
         // Its own package, so neither widget installs over the other.
-        packageId: 'tUb3Xq7L50'
+        packageId: 'AMaiqYt500'
     }
 ];
 
