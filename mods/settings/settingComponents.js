@@ -47,7 +47,8 @@ function claimBooleanRows() {
     return true;
 }
 
-const NOTE_ROWS = ['ytlr-setting-action-renderer', 'ytlr-setting-boolean-renderer'];
+// Notes only ever ride on switch rows. Wrapping the action renderer's template left every action row's detail panel blank (Segments to skip, Tube launcher, pickers).
+const NOTE_ROWS = ['ytlr-setting-boolean-renderer'];
 
 // Built with YouTube's own hyperscript since nodes carry a private stamp — its minified body returns a `{type,props,children}` object, not `.type = x`.
 const findHyperscript = () => findBySource('type:', 'props:', 'children:');
