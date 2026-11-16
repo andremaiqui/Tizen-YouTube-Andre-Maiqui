@@ -11,7 +11,7 @@ const NATIVE_ID = 'http://samsung.com/tv/metadata/nativeID';
 const USERDATA = 'http://samsung.com/tv/metadata/native.userdata';
 
 const METADATA = {
-    'tUb3Xq7Lm9.Tube': [
+    'AMaiqYt550.AndreYT': [
         { key: NATIVE_ID, value: 'com.samsung.tv.cobalt-yt' },
         { key: USERDATA, value: '--base_url=file:///tube/boot.html --proxy=http://127.0.0.2:8099' }
     ],
@@ -22,7 +22,7 @@ const METADATA = {
 global.tizen = {
     application: {
         getAppsInfo: (answer) => answer([
-            { id: 'tUb3Xq7Lm9.Tube', name: 'YouTube', version: '1.0.1' },
+            { id: 'AMaiqYt550.AndreYT', name: 'YouTube', version: '1.0.1' },
             { id: 'other.TizenTube', name: 'TizenTube', version: '2.0.0' },
             { id: 'plain.App', name: 'Weather', version: '1.0.0' },
             { id: 'locked.App', name: 'Locked', version: '1.0.0' }
@@ -42,7 +42,7 @@ require.cache[require.resolve('../lib/cobaltConfig.js')] = {
         switches: () => '',
         configuredContent: () => null,
         container: () => 'com.samsung.tv.cobalt-yt',
-        appId: () => 'tUb3Xq7Lm9.Tube'
+        appId: () => 'AMaiqYt550.AndreYT'
     }
 };
 
@@ -62,7 +62,7 @@ const check = (label, ok) => {
 };
 
 check('our claim is named with its base URL',
-    log.indexOf('tUb3Xq7Lm9.Tube "YouTube" 1.0.1 → com.samsung.tv.cobalt-yt file:///tube/boot.html') !== -1);
+    log.indexOf('AMaiqYt550.AndreYT "YouTube" 1.0.1 → com.samsung.tv.cobalt-yt file:///tube/boot.html') !== -1);
 check('so is any other app on the slot', log.indexOf('other.TizenTube "TizenTube" 2.0.0 → com.samsung.tv.cobalt-yt') !== -1);
 check('an app claiming nothing is left out', log.indexOf('Weather') === -1);
 check('metadata it may not read is counted', log.indexOf('1 apps\' metadata unreadable: Permission denied') !== -1);
@@ -72,7 +72,7 @@ check('before the survey answers, no claim is reported rather than none', before
 const others = claimants.rivals();
 
 check('a second app on our slot is a rival', others.length === 1 && others[0].id === 'other.TizenTube');
-check('and we are never a rival to ourselves', others.every((one) => one.id !== 'tUb3Xq7Lm9.Tube'));
+check('and we are never a rival to ourselves', others.every((one) => one.id !== 'AMaiqYt550.AndreYT'));
 check('a rival carries what names it on the diagnostics page',
     others[0].name === 'TizenTube' && others[0].slot === 'com.samsung.tv.cobalt-yt');
 

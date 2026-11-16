@@ -7,7 +7,7 @@ const { readFileSync } = require('fs');
 const LOG = path.join(os.tmpdir(), `tube-wake-${process.pid}.log`);
 process.env.TUBE_LOG = LOG;
 
-const ME = 'tUb3Xq7Lm9.Tube';
+const ME = 'AMaiqYt550.AndreYT';
 const CONTAINER = 'com.samsung.tv.cobalt-yt';
 
 // A manifest claiming the slot, which off the set only a stand-in can give.

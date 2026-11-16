@@ -36,7 +36,7 @@ check('the elements carry the meaning', ['<main>', '<header>', '<nav>', '<sectio
 check('the tally is drawn rather than described', /<meter value="\d+" max="\d+"/.test(html));
 check('the uptime is machine-readable', /<time datetime="PT\d+S">/.test(html));
 
-check('it offers the Discord', html.indexOf(DISCORD) !== -1);
+check('it offers the issues link', html.indexOf(DISCORD) !== -1);
 check('and the repository', html.indexOf(REPO) !== -1);
 
 check('it links the log at the address the phone reached the TV on',

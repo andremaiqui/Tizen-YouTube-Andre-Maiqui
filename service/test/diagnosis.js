@@ -30,7 +30,7 @@ require.cache[require.resolve('../lib/cobaltConfig.js')] = {
         switches: () => manifest.switches,
         configuredContent: () => process.env.TUBE_COBALT_CONTENT,
         container: () => 'com.samsung.tv.cobalt-yt',
-        appId: () => 'tUb3Xq7Lm9.Tube'
+        appId: () => 'AMaiqYt550.AndreYT'
     }
 };
 

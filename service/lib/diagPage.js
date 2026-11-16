@@ -100,7 +100,7 @@ Patch <code>${escaped(STAMP)}</code>.
 <nav>
 <h2>Help</h2>
 <ul>
-<li><a href="${escaped(DISCORD)}">Join the Discord</a> — ask there, with the log below</li>
+<li><a href="${escaped(DISCORD)}">Open a GitHub issue</a> — ask there, with the log below</li>
 <li><a href="${escaped(here)}/__tube/log">Open the log</a></li>
 <li><a href="${escaped(REPO)}">Report on GitHub</a></li>
 </ul>

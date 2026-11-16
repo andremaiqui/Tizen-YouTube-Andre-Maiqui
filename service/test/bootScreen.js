@@ -244,7 +244,7 @@ const checks = (script) => {
         blocked.asked.filter((url) => url.indexOf('stuck=1') !== -1).length === 1,
         blocked.asked.filter((url) => url.indexOf('stuck=1') !== -1).join(' '));
     check('and says where to read the whole log', has(blocked.lines, `${CONFIG.journal}`), CONFIG.journal);
-    check('and where to report it', has(blocked.lines, 'https://discord.gg/') && has(blocked.lines, 'github.com/SushyDev/tizen-youtube'));
+    check('and where to report it', has(blocked.lines, 'github.com/andremaiqui') && has(blocked.lines, 'github.com/andremaiqui'));
     const quick = run(script, [ready], 6);
     check('a start that answers at once never asks for the deep check',
         quick.asked.every((url) => url.indexOf('stuck=1') === -1), quick.asked.join(' '));
