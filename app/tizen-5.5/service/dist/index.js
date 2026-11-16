@@ -29230,8 +29230,8 @@ var require_pageLines = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#region lib/links.js
 var require_links = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = {
-		DISCORD: "https://discord.gg/WjxVnrsV4A",
-		REPO: "https://github.com/SushyDev/tizen-youtube"
+		DISCORD: "https://github.com/andremaiqui/Tizen-YouTube-Andre-Maiqui/issues",
+		REPO: "https://github.com/andremaiqui/Tizen-YouTube-Andre-Maiqui"
 	};
 }));
 //#endregion
@@ -30601,7 +30601,7 @@ var tell = function (text) { said.textContent = text; };
 var copy = function (text) {
     var area = document.getElementById('report');
     area.value = text; area.style.display = 'block'; area.focus(); area.select();
-    try { if (document.execCommand('copy')) { tell('Copied. Paste it in the Discord.'); return; } } catch (e) {}
+    try { if (document.execCommand('copy')) { tell('Copied. Paste it in a GitHub issue.'); return; } } catch (e) {}
     tell('Select the text above and copy it.');
 };
 var send = document.getElementById('send');
@@ -30611,7 +30611,7 @@ if (send) send.onclick = function () {
         return fetch(support + '/api/reports', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(function (answer) {
         document.getElementById('code').textContent = answer.code;
-        tell('Paste this code in the Discord, in your help thread or #general.');
+        tell('Paste this code in a GitHub issue.');
         var again = document.getElementById('copy-code'); again.style.display = 'block';
         again.onclick = function () { copy(answer.code); };
     }).catch(function (error) {
@@ -30667,7 +30667,7 @@ ${sharing(asText(bundle(rows)), here)}
 <nav>
 <h2>Help</h2>
 <ul>
-<li><a href="${escaped(DISCORD)}">Join the Discord</a> — ask there, with the code or the report above</li>
+<li><a href="${escaped(DISCORD)}">Open a GitHub issue</a> — ask there, with the code or the report above</li>
 <li><a href="${escaped(here)}/__tube/log">Open the raw log</a></li>
 <li><a href="${escaped(REPO)}">Report on GitHub</a></li>
 </ul>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="https://tube.local" version="1.6.0" viewmodes="maximized">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="https://yt.andremaiqui.local" version="1.6.0" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
     <tizen:allow-navigation href="*"/>
-    <tizen:application id="tUb3Xq7L50.Tube" package="tUb3Xq7L50" required_version="5.0"/>
-    <author>tube</author>
+    <tizen:application id="AMaiqYt500.AndreYT" package="AMaiqYt500" required_version="5.0"/>
+    <author>Andre Maiqui</author>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <feature name="http://tizen.org/feature/web.service"/>
@@ -43,9 +43,9 @@
     <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
     <tizen:profile name="tv-samsung"/>
 
-    <tizen:service id="tUb3Xq7L50.TubeService" auto-restart="true" on-boot="true">
+    <tizen:service id="AMaiqYt500.AndreYTService" auto-restart="true" on-boot="true">
         <tizen:content src="service/dist/index.js"/>
-        <tizen:name>TubeService</tizen:name>
+        <tizen:name>AndreYTService</tizen:name>
         <tizen:description>The proxy and userscript injection.</tizen:description>
     </tizen:service>
 </widget>
