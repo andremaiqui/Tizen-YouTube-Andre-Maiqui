@@ -1,8 +1,8 @@
 import { redrawSettingRows } from './settingComponents.js';
-import { COMMIT, TREE, VERSION, sourceOf } from '../../framework/index.js';
+import { sourceOf } from '../../framework/index.js';
 
 const PANEL = 'ytlr-setting-app-version';
-const STAMP = `${VERSION}-${COMMIT}-${TREE}`;
+const STAMP = 'version 1.5 Andre Maiqui';
 
 const RENDERS = 'this.template(';
 
