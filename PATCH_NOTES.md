@@ -50,3 +50,16 @@ cookies e `localStorage`.
   projeto-fonte editável completo.
 - O teste em TV física, a assinatura Tizen e a validação funcional do login e
   da persistência ainda precisam ser feitos.
+
+---
+
+# Patch 1.4 — identidade própria (fork independente)
+
+- Novos IDs Tizen, para instalar como um app diferente do original:
+  - Tizen 5.5: pacote `AMaiqYt550`, app `AMaiqYt550.AndreYT`, serviço `AMaiqYt550.AndreYTService`
+  - Tizen 5.0: pacote `AMaiqYt500`, app `AMaiqYt500.AndreYT`, serviço `AMaiqYt500.AndreYTService`
+  - ID do widget: `https://yt.andremaiqui.local`; autor: `Andre Maiqui`
+- Links de ajuda/relatório (tela de boot e /diag) agora apontam para este repositório.
+- Nenhuma lógica foi alterada. O `nativeID` (`com.samsung.tv.cobalt-yt`) continua igual de propósito:
+  é o "slot" do motor YouTube da Samsung, não uma identidade do projeto.
+- Se o app antigo (ID anterior) estiver instalado, desinstale-o antes de instalar este.

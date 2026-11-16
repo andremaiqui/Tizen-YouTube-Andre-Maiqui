@@ -1,12 +1,12 @@
 {
-  "name": "tizen-youtube",
+  "name": "tizen-youtube-andre-maiqui",
   "version": "1.5.1",
   "private": true,
   "description": "Standalone ad-free YouTube for Samsung Tizen TVs.",
   "license": "GPL-3.0-only",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SushyDev/tizen-youtube.git"
+    "url": "git+https://github.com/andremaiqui/Tizen-YouTube-Andre-Maiqui.git"
   },
   "engines": {
     "node": ">=20"
