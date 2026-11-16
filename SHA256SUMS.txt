@@ -1,2 +1,2 @@
-edfc40dce7d0afd98ba2b3d72d18ad4557d6928ad790c962f3408608bc28d593  tizen-youtube-1.6.0-Andre_Maiqui-v1.4-tizen-5.0.wgt
-c306998c40b9f5134ae2ffb4dcf2c65eac2159939505595cc1eb1b5442f4d056  tizen-youtube-1.6.0-Andre_Maiqui-v1.4-tizen-5.5.wgt
+5c8aa59a8ad43e4364aa5cb703da9af1ef085c72f32a38e5379938e1c2d33522  tizen-youtube-1.6.0-Andre_Maiqui-v1.4-config-fix-tizen-5.0.wgt
+d998f015e9580f4dc2112de0ad0ca7aa9a73b8200ed47f71572569b10fe54080  tizen-youtube-1.6.0-Andre_Maiqui-v1.4-config-fix-tizen-5.5.wgt

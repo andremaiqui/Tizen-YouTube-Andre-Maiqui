@@ -63,3 +63,21 @@ cookies e `localStorage`.
 - Nenhuma lógica foi alterada. O `nativeID` (`com.samsung.tv.cobalt-yt`) continua igual de propósito:
   é o "slot" do motor YouTube da Samsung, não uma identidade do projeto.
 - Se o app antigo (ID anterior) estiver instalado, desinstale-o antes de instalar este.
+
+---
+
+# Patch 1.4 — correção do painel vazio nas configurações
+
+- Sintoma: nas configurações do app, as linhas de ação (Segments to skip,
+  Ask before skipping, Tube launcher, Counts as watched at, Hide them on,
+  Page to open) abriam um painel cinza vazio; as linhas liga/desliga e os itens
+  nativos do YouTube funcionavam.
+- Causa: o gancho que acrescenta a "nota" aos painéis (`NOTE_ROWS` em
+  `mods/settings/settingComponents.js`) também envolvia o `template` do
+  `ytlr-setting-action-renderer`.
+- Correção: a nota passa a ser aplicada só em `ytlr-setting-boolean-renderer`
+  (as notas existem apenas em linhas liga/desliga: SponsorBlock, DeArrow e
+  Return YouTube Dislike). Testado em TV: funcionou.
+- Versão alinhada em 1.6.0 em `package.json`, `service/package.json`,
+  `package-lock.json`, `tizen.config.json` e `app/config.xml`
+  (o CI `version:check` falhava porque o `config.xml` estava em 1.6.0 e o resto em 1.5.1).
