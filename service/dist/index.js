@@ -29077,8 +29077,8 @@ var require_stamp = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#region lib/links.js
 var require_links = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = {
-		DISCORD: "https://discord.gg/WjxVnrsV4A",
-		REPO: "https://github.com/SushyDev/tizen-youtube"
+		DISCORD: "https://github.com/andremaiqui/Tizen-YouTube-Andre-Maiqui/issues",
+		REPO: "https://github.com/andremaiqui/Tizen-YouTube-Andre-Maiqui"
 	};
 }));
 //#endregion
@@ -30287,7 +30287,7 @@ Patch <code>${escaped(STAMP)}</code>.
 <nav>
 <h2>Help</h2>
 <ul>
-<li><a href="${escaped(DISCORD)}">Join the Discord</a> — ask there, with the log below</li>
+<li><a href="${escaped(DISCORD)}">Open a GitHub issue</a> — ask there, with the log below</li>
 <li><a href="${escaped(here)}/__tube/log">Open the log</a></li>
 <li><a href="${escaped(REPO)}">Report on GitHub</a></li>
 </ul>
