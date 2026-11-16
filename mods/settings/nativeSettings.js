@@ -4,6 +4,7 @@ import { categoryFor } from './settingRows.js';
 import { ADDED, putMoved, takeMoved } from './adoptedRows.js';
 import { category, categoryOf, indexOfCategory } from './settingsResponse.js';
 import { claimDrawnRows } from './claimDrawn.js';
+import { keepPatchRow } from './aboutRow.js';
 import { redrawSettingRows } from './settingComponents.js';
 
 // Our categories go in before YouTube's rows are taken out, so there is somewhere for them to land.
@@ -28,6 +29,7 @@ function PatchSettings(response) {
     if (alreadyPatched(items)) return;
 
     claimDrawnRows();
+    keepPatchRow();
 
     insertAt(items, indexOfCategory(items, BEFORE), GROUPS.map(categoryFor));
 
