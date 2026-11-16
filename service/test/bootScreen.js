@@ -7,6 +7,7 @@ const vm = require('vm');
 const { rollup } = require('rollup');
 
 const { BOOT_URL, html, writeBootScreen } = require('../lib/bootScreen.js');
+const { DISCORD } = require('../lib/links.js');
 
 const results = [];
 
@@ -165,7 +166,7 @@ const checks = (script) => {
     check('a broken start stays on the log', stuck.replaced.length === 0);
     check('a service that is wrong rather than slow has everything checked', stuck.asked.some((url) => url.indexOf('stuck=1') !== -1));
     check('and the viewer is told where to report it without waiting for a give-up',
-        has(stuck.lines, '/__tube/log') && has(stuck.lines, 'https://discord.gg/'));
+        has(stuck.lines, '/__tube/log') && has(stuck.lines, DISCORD));
     check('and says what it waits on, in red', toneOf(stuck.lines, 'waiting: www.youtube.com is not reachable') === 'bad');
     check('a proxy error is shown in red', toneOf(stuck.lines, 'upstream failed on') === 'bad');
 
@@ -250,7 +251,7 @@ const checks = (script) => {
         quick.asked.every((url) => url.indexOf('stuck=1') === -1), quick.asked.join(' '));
 
     check('a service that never answers is reported the same way', has(silent.lines, `${CONFIG.journal}`)
-        && has(silent.lines, 'https://discord.gg/'));
+        && has(silent.lines, DISCORD));
     check('and the checks it could not run are not claimed to have passed',
         silent.lines.every((line) => line.text.indexOf('ok: ') === -1));
 
