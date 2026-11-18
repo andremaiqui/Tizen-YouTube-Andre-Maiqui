@@ -11,7 +11,11 @@
 
 Se você gosta dos meus projetos, considere fazer uma pequena doação.
 
+BitCoin - bc1q0mjyv0zmwnq02jqt0ug3try8dva08gzuyvzqut
+
 Chave pix ❖ - 08d75e71-0bb9-41d4-b249-d7acadf8c72f 
+
+Ethereum - 0x7c655E4C0C77f4F3b5E9f3cB12f62011ec4FBE22
 
 Use this installer - https://github.com/Apps2Samsung/Apps2Samsung
 
