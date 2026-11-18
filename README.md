@@ -1,4 +1,6 @@
-<img width="400" alt="Logotipo YouTube" src="https://github.com/user-attachments/assets/dd7c8817-f39c-4ae9-9009-15e82b0232bf" />
+<p align="center">
+  <img width="400" alt="Logotipo YouTube" src="https://github.com/user-attachments/assets/dd7c8817-f39c-4ae9-9009-15e82b0232bf" />
+</p>
 
 
 
