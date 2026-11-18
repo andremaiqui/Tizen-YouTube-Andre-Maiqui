@@ -11,11 +11,28 @@
 
 Se você gosta dos meus projetos, considere fazer uma pequena doação.
 
-BitCoin - bc1q0mjyv0zmwnq02jqt0ug3try8dva08gzuyvzqut
+<div align="center">
 
-Chave pix ❖ - 08d75e71-0bb9-41d4-b249-d7acadf8c72f 
+<table>
+  <tr>
+    <th align="center">Chave pix ❖</th>
+    <th align="center">Ethereum -</th>
+    <th align="center">Bitcoin -</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="180" height="180" src="https://github.com/user-attachments/assets/0c8eed80-a6e7-4f93-bef5-7d31c1237de9" alt="Chave Pix" />
+    </td>
+    <td align="center">
+      <img width="180" height="180" src="https://github.com/user-attachments/assets/902b34bc-ee97-4aee-83fa-0580ab0e12fe" alt="Ethereum" />
+    </td>
+    <td align="center">
+      <img width="180" height="180" src="https://github.com/user-attachments/assets/3d62c33b-b1be-4454-be79-924819ca55cc" alt="Bitcoin" />
+    </td>
+  </tr>
+</table>
 
-Ethereum - 0x7c655E4C0C77f4F3b5E9f3cB12f62011ec4FBE22
+</div>
 
 Use this installer - https://github.com/Apps2Samsung/Apps2Samsung
 
