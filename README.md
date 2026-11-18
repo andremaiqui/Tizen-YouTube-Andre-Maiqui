@@ -16,8 +16,8 @@ Se você gosta dos meus projetos, considere fazer uma pequena doação.
 <table>
   <tr>
     <th align="center">Chave pix ❖</th>
-    <th align="center">Ethereum -</th>
-    <th align="center">Bitcoin -</th>
+    <th align="center">Ethereum</th>
+    <th align="center">Bitcoin</th>
   </tr>
   <tr>
     <td align="center">
