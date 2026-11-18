@@ -1,3 +1,10 @@
+<img width="600" alt="Logotipo YouTube" src="https://github.com/user-attachments/assets/dd7c8817-f39c-4ae9-9009-15e82b0232bf" />
+
+
+
+
+
+
 👍 Contribuições
 
 Se você gosta dos meus projetos, considere fazer uma pequena doação.
