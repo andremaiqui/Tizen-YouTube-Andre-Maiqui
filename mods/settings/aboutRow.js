@@ -43,7 +43,7 @@ function stampPatchRow() {
 }
 
 const keepPatchRow = () => {
-    stampPatchRow();
+    if (typeof document.querySelector === 'function') stampPatchRow();
     return every('about-patch-row', CHECK_EVERY, stampPatchRow);
 };
 
