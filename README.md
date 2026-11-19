@@ -10,31 +10,31 @@
 
 
 
-👍 Contribuições
+<h2 align="center">Contribuições</h2>
 
-Se você gosta dos meus projetos, considere fazer uma pequena doação.
+<p align="center">
+  Se você gosta dos meus projetos, considere fazer uma pequena doação.
+</p>
 
 <div align="center">
-
-<table>
-  <tr>
-    <th align="center">Chave pix ❖</th>
-    <th align="center">Ethereum</th>
-    <th align="center">Bitcoin</th>
-  </tr>
-  <tr>
-    <td align="center">
-      <img width="180" height="180" src="https://github.com/user-attachments/assets/0c8eed80-a6e7-4f93-bef5-7d31c1237de9" alt="Chave Pix" />
-    </td>
-    <td align="center">
-      <img width="180" height="180" src="https://github.com/user-attachments/assets/902b34bc-ee97-4aee-83fa-0580ab0e12fe" alt="Ethereum" />
-    </td>
-    <td align="center">
-      <img width="180" height="180" src="https://github.com/user-attachments/assets/3d62c33b-b1be-4454-be79-924819ca55cc" alt="Bitcoin" />
-    </td>
-  </tr>
-</table>
-
+  <table>
+    <tr>
+      <th align="center">Chave pix ❖</th>
+      <th align="center">Ethereum</th>
+      <th align="center">Bitcoin</th>
+    </tr>
+    <tr>
+      <td align="center">
+        <img width="280" height="280" src="https://github.com/user-attachments/assets/0c8eed80-a6e7-4f93-bef5-7d31c1237de9" alt="Chave Pix" />
+      </td>
+      <td align="center">
+        <img width="280" height="280" src="https://github.com/user-attachments/assets/902b34bc-ee97-4aee-83fa-0580ab0e12fe" alt="Ethereum" />
+      </td>
+      <td align="center">
+        <img width="280" height="280" src="https://github.com/user-attachments/assets/3d62c33b-b1be-4454-be79-924819ca55cc" alt="Bitcoin" />
+      </td>
+    </tr>
+  </table>
 </div>
 
 Use this installer - https://github.com/Apps2Samsung/Apps2Samsung
