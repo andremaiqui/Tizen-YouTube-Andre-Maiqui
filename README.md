@@ -1,5 +1,8 @@
 <p align="center">
-  <img width="400" alt="Logotipo YouTube" src="https://github.com/user-attachments/assets/dd7c8817-f39c-4ae9-9009-15e82b0232bf" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/youtube-logo-dark.png" />
+    <img width="400" alt="Logotipo YouTube" src="https://github.com/user-attachments/assets/dd7c8817-f39c-4ae9-9009-15e82b0232bf" />
+  </picture>
 </p>
 
 
