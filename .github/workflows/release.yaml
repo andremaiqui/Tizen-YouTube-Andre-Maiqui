@@ -173,11 +173,12 @@ jobs:
           name: tizen-youtube-widget
           path: release
 
-      - name: Open a draft release with it
+      - name: Publish the GitHub release with it
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
-          draft: true
+          draft: false
+          generate_release_notes: true
           prerelease: ${{ contains(github.ref_name, '-') }}
           files: release/*.wgt
           fail_on_unmatched_files: true
