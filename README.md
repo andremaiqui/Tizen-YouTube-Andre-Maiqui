@@ -25,13 +25,13 @@
     </tr>
     <tr>
       <td align="center">
-        <img width="210" height="210" src="https://github.com/user-attachments/assets/0c8eed80-a6e7-4f93-bef5-7d31c1237de9" alt="Chave Pix" />
+        <img width="180" height="180" src="https://github.com/user-attachments/assets/0c8eed80-a6e7-4f93-bef5-7d31c1237de9" alt="Chave Pix" />
       </td>
       <td align="center">
-        <img width="210" height="210" src="https://github.com/user-attachments/assets/902b34bc-ee97-4aee-83fa-0580ab0e12fe" alt="Ethereum" />
+        <img width="180" height="180" src="https://github.com/user-attachments/assets/902b34bc-ee97-4aee-83fa-0580ab0e12fe" alt="Ethereum" />
       </td>
       <td align="center">
-        <img width="210" height="210" src="https://github.com/user-attachments/assets/3d62c33b-b1be-4454-be79-924819ca55cc" alt="Bitcoin" />
+        <img width="180" height="180" src="https://github.com/user-attachments/assets/3d62c33b-b1be-4454-be79-924819ca55cc" alt="Bitcoin" />
       </td>
     </tr>
   </table>
