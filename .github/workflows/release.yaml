@@ -168,6 +168,14 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - uses: actions/checkout@v7
+
+      - name: Prepare release metadata
+        id: metadata
+        run: |
+          version="$(node -p "require('./tizen.config.json').version")"
+          echo "name=YouTube for TizenOS - Andre Maiqui - Patch $version" >> "$GITHUB_OUTPUT"
+
       - uses: actions/download-artifact@v8
         with:
           name: tizen-youtube-widget
@@ -177,8 +185,17 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
+          name: ${{ steps.metadata.outputs.name }}
+          body: |
+            Tizen 5.5 ou superior — compatível com Tizen 5.5 ou versões posteriores.
+
+            Tizen 5.0 ou inferior — compatível com Tizen 5.0 ou versões anteriores.
+
+            Atualização do sistema de CI e publicação automática.
+            Correções e melhorias gerais do projeto.
+            Pacotes Tizen 5.0 e Tizen 5.5 incluídos nos assets.
           draft: false
-          generate_release_notes: true
+          generate_release_notes: false
           prerelease: ${{ contains(github.ref_name, '-') }}
           files: release/*.wgt
           fail_on_unmatched_files: true
