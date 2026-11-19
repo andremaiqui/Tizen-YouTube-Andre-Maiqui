@@ -5,6 +5,7 @@
 // a change of the set's own addresses throws every open connection away.
 
 delete process.env.TUBE_PROXY_HOST;
+process.env.TUBE_TEST_UPSTREAM = '1';
 
 const HEADERS_DEADLINE = 20000;
 const setTimer = global.setTimeout;

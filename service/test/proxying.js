@@ -1,6 +1,7 @@
 'use strict';
 
 process.env.TUBE_PROXY_HOST = 'tv.example';
+process.env.TUBE_TEST_UPSTREAM = '1';
 
 delete global.AbortController;
 
@@ -99,7 +100,7 @@ upstream.listen(0, '127.0.0.1', () => {
             req.end();
         });
 
-        const get = (path) => ask(path);
+        const get = (path, headers) => ask(path, headers ? { headers } : undefined);
         const bypass = (path) => get(`/cors-bypass/${target}${path}`);
 
         const preflight = (path, headers) => ask(path, {
@@ -126,6 +127,14 @@ upstream.listen(0, '127.0.0.1', () => {
                 check('CORS is opened for the page',
                     res.headers['access-control-allow-origin'] === '*',
                     res.headers['access-control-allow-origin']);
+
+                return get(`/cors-bypass/${target}/json`, { origin: 'https://evil.example' });
+            })
+            .then((res) => {
+                check('CORS does not reflect an untrusted origin with credentials',
+                    res.headers['access-control-allow-origin'] === '*'
+                    && !res.headers['access-control-allow-credentials'],
+                    `${res.headers['access-control-allow-origin']} / ${res.headers['access-control-allow-credentials']}`);
 
                 return bypass('/bin');
             })
@@ -203,11 +212,11 @@ upstream.listen(0, '127.0.0.1', () => {
                     res.status === 500 && res.body.toString().indexOf('tube:') === 0,
                     `${res.status} ${res.body.toString().slice(0, 60)}`);
 
-                return get('/cors-bypass/http://127.0.0.1:1/dead');
+                return get('/cors-bypass/http://evil.example/dead');
             })
             .then((res) => {
-                check('an unreachable upstream is answered, not left hanging',
-                    res.status === 500 && res.body.toString().indexOf('tube:') === 0,
+                check('an upstream outside the allowlist is rejected',
+                    res.status === 403 && res.body.toString().indexOf('tube: upstream host') === 0,
                     `${res.status} ${res.body.toString().slice(0, 60)}`);
 
                 return ask('/__tube/ping', { headers: { 'user-agent': 'curl/8.7.1' } });

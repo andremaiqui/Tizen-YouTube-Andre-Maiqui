@@ -7,6 +7,7 @@ const https = require('https');
 const URL = require('url');
 
 const postmortem = require('./postmortem.js');
+const { isAllowedWebSocketTarget } = require('./hostPolicy.js');
 
 // An upgrade arrives in one of two shapes: absolute-form from a client using us as a proxy, or
 // origin-form over our own MITM TLS, where the Host header is the only thing naming the target.
@@ -58,9 +59,11 @@ const attach = (server, options) => {
     server.on('upgrade', (req, socket, head) => {
         hold(socket);
 
-        const target = rewrite(req) || targetOf(req);
+        const rewritten = rewrite(req);
+        const target = rewritten || targetOf(req);
 
-        if (!target || !target.host) {
+        if (!target || !target.host || (!rewritten && !isAllowedWebSocketTarget(target.host, target.port, target.secure))) {
+            if (target && target.host) postmortem.note('upgrade', `blocked ${target.host}:${target.port}`);
             socket.destroy();
             return;
         }

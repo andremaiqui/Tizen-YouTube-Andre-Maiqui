@@ -5,6 +5,7 @@ const URL = require('url');
 const dev = require('../dev/index.js');
 const { upstream } = require('./knobs.js');
 const { restoreCookiePrefixes } = require('./rewrites.js');
+const { isAllowedHttpTarget } = require('./hostPolicy.js');
 
 const YOUTUBE_HOST = 'www.youtube.com';
 const YOUTUBE_ORIGIN = `https://${YOUTUBE_HOST}`;
@@ -37,7 +38,8 @@ const routeFor = (req) => {
         url: upgradeScheme(target, forGoogle),
         host,
         forGoogle,
-        isBypass
+        isBypass,
+        blocked: isBypass && !isAllowedHttpTarget(target)
     };
 };
 

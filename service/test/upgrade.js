@@ -4,6 +4,7 @@ const http = require('http');
 const net = require('net');
 
 process.env.TUBE_PROXY_HOST = 'tv.example';
+process.env.TUBE_TEST_UPSTREAM = '1';
 
 const proxy = require('../lib/proxy.js');
 const upgrade = require('../lib/upgrade.js');

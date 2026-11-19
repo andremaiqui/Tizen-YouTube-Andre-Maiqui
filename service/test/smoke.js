@@ -45,6 +45,7 @@ process.on('exit', () => {
 
 process.env.TUBE_PROXY_PORT = String(PORT);
 process.env.TUBE_LOG = path.join(scratch, 'service.log');
+process.env.TUBE_TEST_UPSTREAM = '1';
 
 const entry = process.env.TUBE_SMOKE_ENTRY
     ? path.resolve(process.env.TUBE_SMOKE_ENTRY)

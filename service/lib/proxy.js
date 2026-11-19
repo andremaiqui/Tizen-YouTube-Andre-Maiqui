@@ -38,8 +38,10 @@ const release = (stream) => (typeof stream.destroy === 'function' ? stream.destr
 // A wildcard is refused for a request that carries cookies.
 const allowOrigin = (req, res) => {
     const asked = req.get('origin');
-    res.setHeader('Access-Control-Allow-Origin', asked || '*');
-    if (asked) res.setHeader('Access-Control-Allow-Credentials', 'true');
+    const allowed = asked === YOUTUBE_ORIGIN || asked === localOrigin();
+    res.setHeader('Access-Control-Allow-Origin', asked && allowed ? asked : '*');
+    if (asked && allowed) res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Vary', 'Origin');
 };
 
 const create = () => {
@@ -146,6 +148,11 @@ const attachFallback = (app) => {
         }
 
         const route = routeFor(req);
+
+        if (route.blocked) {
+            dev.journal.service('blocked', `upstream ${route.host || 'unknown'}`);
+            return res.status(403).type('text/plain').send('tube: upstream host is not allowed');
+        }
 
         // Served as ourselves, the page has to say so in its own URL before kabuki reads it.
         if (req.path === '/tv' && !hidesWatermark(req.url)) {
