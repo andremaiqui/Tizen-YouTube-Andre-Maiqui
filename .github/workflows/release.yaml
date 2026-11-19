@@ -58,9 +58,14 @@ jobs:
         id: widget
         run: |
           version="$(node -p "require('./tizen.config.json').version")"
-          mv release/tube-tizen-5.5.wgt "release/tizen-youtube-${version}-tizen-5.5.wgt"
-          mv release/tube-tizen-5.0.wgt "release/tizen-youtube-${version}-tizen-5.0.wgt"
-          echo "path=release/tizen-youtube-${version}*.wgt" >> "$GITHUB_OUTPUT"
+          release_tag="${GITHUB_REF_NAME#v}"
+          if [ "$release_tag" = "$GITHUB_REF_NAME" ]; then
+            release_tag="$version"
+          fi
+          prefix="tizen-youtube-${version}-Andre_Maiqui-v${release_tag}"
+          mv release/tube-tizen-5.5.wgt "release/${prefix}-tizen-5.5.wgt"
+          mv release/tube-tizen-5.0.wgt "release/${prefix}-tizen-5.0.wgt"
+          echo "path=release/${prefix}-tizen-*.wgt" >> "$GITHUB_OUTPUT"
 
       - name: Keep the service bundles for the runtime matrix
         uses: actions/upload-artifact@v7
