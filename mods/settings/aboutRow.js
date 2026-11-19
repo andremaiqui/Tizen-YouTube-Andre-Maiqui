@@ -1,8 +1,8 @@
-import { every } from '../../framework/index.js';
+import { every, VERSION } from '../../framework/index.js';
 
 const PANEL = 'ytlr-setting-app-version';
 const LABEL = 'Patch';
-const VALUE = 'version 1.5 Andre Maiqui';
+const VALUE = `version ${VERSION} Andre Maiqui`;
 const MARK = 'data-tube-patch';
 const CHECK_EVERY = 1000;
 
@@ -42,6 +42,9 @@ function stampPatchRow() {
     row.parentNode.insertBefore(copy, row.nextSibling);
 }
 
-const keepPatchRow = () => every('about-patch-row', CHECK_EVERY, stampPatchRow);
+const keepPatchRow = () => {
+    if (typeof document.querySelector === 'function') stampPatchRow();
+    return every('about-patch-row', CHECK_EVERY, stampPatchRow);
+};
 
 export { keepPatchRow };
