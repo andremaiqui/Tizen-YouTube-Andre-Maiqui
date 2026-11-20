@@ -54,7 +54,7 @@ Principais modificações
 
 🚫 YouTube ADS
 
-Remove todos os anúncios e propagandas do YouTube e deixa a interface limpa e fluída.
+- **Bloqueio de anúncios:** remove os anúncios e propagandas do YouTube, deixando a interface mais limpa e fluida.
 
 🔒 Correções de segurança
 
