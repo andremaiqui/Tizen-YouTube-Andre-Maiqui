@@ -52,7 +52,9 @@ Google ou Samsung. YouTube é uma marca de seus respectivos titulares.
 
 Principais modificações
 
-🚫 Remove todos os anúncios e propagandas do YouTube e deixa a interface limpa e fluída.
+🚫 YouTube ADS
+
+Remove todos os anúncios e propagandas do YouTube e deixa a interface limpa e fluída.
 
 🔒 Correções de segurança
 
