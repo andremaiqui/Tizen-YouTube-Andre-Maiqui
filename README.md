@@ -9,7 +9,6 @@
 
 
 
-
 <h2 align="center">Contribuições</h2>
 
 <p align="center">
@@ -55,77 +54,72 @@ Principais modificações
 
 🚫 Remove todos os anúncios e propagandas do YouTube e deixa a interface limpa e fluída.
 
+🔒 Correções de segurança
+
+- **Proteção contra SSRF no proxy HTTP:** o endpoint de bypass não aceita mais
+  qualquer URL arbitrária. As requisições agora são limitadas aos domínios
+  oficiais utilizados pelo aplicativo, como YouTube, Google Video, Google APIs,
+  GGPHT, GStatic e Googleusercontent.
+- **Bloqueio de destinos não autorizados:** URLs externas, hosts desconhecidos e
+  portas diferentes das portas padrão HTTP/HTTPS são rejeitados com resposta
+  `403`, impedindo que o serviço seja usado como proxy para acessar redes
+  internas ou serviços de terceiros.
+- **Proteção do proxy WebSocket:** conexões WebSocket também validam o host e a
+  porta de destino antes de criar o túnel de comunicação.
+- **Modo de teste isolado:** os testes locais podem usar servidores
+  `127.0.0.0/8` somente quando a variável de teste apropriada está
+  explicitamente habilitada. Essa exceção não é ativada no widget de produção.
+- **Correção de CORS:** o serviço não reflete mais automaticamente qualquer
+  origem enviada pelo navegador junto com credenciais. Apenas as origens
+  autorizadas recebem acesso credenciado, e as respostas informam corretamente
+  a variação por origem.
+
 🌐 Estabilidade de internet e rede
 
-O patch reúne ajustes voltados à confiabilidade da conexão e ao
-comportamento do aplicativo em diferentes condições de rede:
-
-Melhorias de estabilidade durante o uso conectado à internet.
-
-Ajustes para reduzir falhas de comunicação e interrupções
-inesperadas.
-
-Tratamento de cenários de conectividade envolvendo IPv4 e IPv6.
-
-Ajustes relacionados ao transporte HTTP/2 e à
-seleção/compatibilidade de rotas de rede.
-
-Melhor comportamento esperado durante mudanças de conexão.
+- **Conexão com a internet:** ajustes para melhorar a estabilidade durante o
+  uso conectado.
+- **Falhas de comunicação:** melhorias voltadas a reduzir interrupções
+  inesperadas.
+- **IPv4 e IPv6:** tratamento de cenários de conectividade com os dois
+  protocolos.
+- **HTTP/2 e rotas de rede:** ajustes de transporte e compatibilidade de rotas.
+- **Mudanças de conexão:** melhorias de comportamento durante transições entre
+  conexões.
 
 🔄 Troca de rede, travamentos e congelamentos
 
-Foram realizadas modificações com o objetivo de reduzir situações em que
-o aplicativo deixa de responder após mudanças na conexão:
-
-Correções relatadas para falhas ao alternar entre redes de internet.
-
-Ajustes destinados a evitar congelamentos e travamentos durante a
-troca de rede.
-
-Melhorias na continuidade da navegação após oscilações ou
-reconexões.
-
-Foco em tornar a experiência mais estável em sessões prolongadas.
+- **Alternância entre redes:** correções para falhas que podem ocorrer ao
+  trocar a conexão de internet.
+- **Travamentos:** ajustes para reduzir congelamentos durante a mudança de
+  rede.
+- **Reconexão:** melhorias para dar continuidade à navegação após oscilações
+  ou reconexões.
+- **Sessões prolongadas:** ajustes voltados à estabilidade durante o uso
+  contínuo.
 
 🎙️ Microfone e pesquisa por voz
 
-O projeto inclui ajustes na experiência de pesquisa por comando de voz:
-
-Correções e ajustes na função de microfone.
-
-Melhorias na interação com a pesquisa por voz usando o controle
-remoto compatível.
-
-Ajustes visuais nos elementos da interface de pesquisa por voz.
-
-Atenção à configuração de suporte a microfone na plataforma Tizen.
-
-Observação: o funcionamento do microfone também depende do modelo da
-TV, do controle remoto, das permissões e dos recursos disponibilizados
-pelo sistema Tizen.
+- **Função de microfone:** correções e ajustes na captura de voz.
+- **Pesquisa por voz:** melhorias na interação usando um controle remoto
+  compatível.
+- **Interface de voz:** ajustes visuais nos elementos da pesquisa por voz.
+- **Suporte no Tizen:** configuração do suporte a microfone na plataforma.
+- **Compatibilidade:** o funcionamento depende do modelo da TV, do controle
+  remoto, das permissões e dos recursos oferecidos pelo sistema Tizen.
 
 🎨 Interface e ajustes visuais
 
-As personalizações visuais buscam manter uma aparência próxima à
-experiência original do YouTube para TV:
-
-Ajustes estéticos para preservar a identidade visual do aplicativo.
-
-Refinamentos em componentes da interface.
-
-Ajustes em ícones e elementos de tela.
-
-Personalizações para deixar a navegação mais consistente e familiar.
+- **Identidade visual:** personalizações para manter uma aparência próxima à
+  experiência do YouTube para TV.
+- **Componentes:** refinamentos em elementos da interface.
+- **Ícones e telas:** ajustes visuais em ícones e outros elementos.
+- **Navegação:** personalizações para tornar a experiência mais consistente e
+  familiar.
 
 🔐 Login e sessão
 
-O aplicativo contempla os fluxos de autenticação disponíveis na
-experiência para TV, incluindo:
-
-Login por QR Code, com autenticação realizada em outro dispositivo.
-
-Login manual pela televisão, usando e-mail e senha com o controle
-remoto.
-
-Ajustes e interceptações relacionados a comandos de autenticação,
-identidade e troca de conta.
+- **Login por QR Code:** autenticação realizada em outro dispositivo.
+- **Login pela TV:** entrada manual de e-mail e senha usando o controle
+  remoto.
+- **Conta e autenticação:** ajustes relacionados a comandos de login,
+  identidade e troca de conta.
