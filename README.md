@@ -69,6 +69,8 @@ ajustes e patches voltados a melhorar a experiência de utilização na
 televisão, preservando a proposta visual e o funcionamento familiar do
 aplicativo.
 
+Este projeto é baseado em [SushyDev/tizen-youtube](https://github.com/SushyDev/tizen-youtube).
+
 Aviso: projeto independente, de uso pessoal e experimental. Não é
 um aplicativo oficial, não é mantido nem endossado pelo YouTube,
 Google ou Samsung. YouTube é uma marca de seus respectivos titulares.
