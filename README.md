@@ -45,6 +45,22 @@
 
 ---
 
+## Instalação
+
+> **Importante:** Antes de instalar, desinstale da TV qualquer outra versão do YouTube para Tizen. No Apps2Samsung, abra **On the TV**, selecione a versão instalada e escolha **Uninstall**; também é possível removê-la pelo menu de aplicativos da TV. A desinstalação apaga os dados locais e a sessão dessa versão. Depois, reinicie a TV completamente antes de iniciar a instalação: mantenha o botão liga/desliga do controle pressionado até o logotipo Samsung aparecer ou retire a TV da tomada por cerca de 30 segundos. Apenas deixá-la em espera não conta como reinicialização.
+
+1. **Prepare a TV e o Apps2Samsung.** Instale ou atualize o [Apps2Samsung](https://github.com/Apps2Samsung/Apps2Samsung/releases) no computador. Conecte o computador e a TV à mesma rede local.
+2. **Ative o Modo de Desenvolvedor da TV, se ainda não estiver ativado.** Na TV, abra **Apps**, digite `12345`, ative **Developer Mode** e informe em **Host PC IP** o endereço IP do computador que está executando o Apps2Samsung. Confirme em **OK**. Se acabou de ativar ou alterar essa configuração, reinicie a TV novamente para que ela entre em vigor.
+3. **Selecione a TV no Apps2Samsung.** Abra o instalador e escolha a TV detectada. Aguarde até que ela apareça como pronta para instalação.
+4. **Selecione o certificado Partner.** No Apps2Samsung, abra **Configurações > Installing > Signing** e, em **Certificado**, escolha **Partner**. Se for o primeiro uso, siga a autenticação da Samsung para criar o certificado; o Apps2Samsung poderá reutilizá-lo nas próximas instalações.
+5. **Baixe o pacote correto do aplicativo.** Abra a página de [releases do projeto](https://github.com/andremaiqui/Tizen-YouTube-Andre-Maiqui/releases/latest) e baixe o arquivo `.wgt` compatível com a versão Tizen da sua TV: Tizen 5.0 ou Tizen 5.5.
+6. **Instale o aplicativo.** No Apps2Samsung, abra **Install**, escolha a opção para instalar um arquivo, selecione o `.wgt` baixado e inicie a instalação. Confirme que o certificado selecionado continua como **Partner** e aguarde a conclusão.
+7. **Abra o YouTube na TV.** Quando o Apps2Samsung confirmar que a instalação terminou, encontre o aplicativo na lista de apps da TV e inicie-o.
+
+> Se a instalação falhar, confira se a TV continua no Modo de Desenvolvedor, se o endereço em **Host PC IP** corresponde ao computador e se os dois dispositivos estão na mesma rede. Consulte também o [guia e FAQ do Apps2Samsung](https://github.com/Apps2Samsung/Apps2Samsung/wiki/FAQ).
+
+---
+
 **Sobre o projeto**
 
 O Tizen YouTube Andre Maiqui é uma versão personalizada do
