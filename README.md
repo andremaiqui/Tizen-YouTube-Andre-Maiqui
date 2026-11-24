@@ -36,9 +36,16 @@
   </table>
 </div>
 
-Use this installer - https://github.com/Apps2Samsung/Apps2Samsung
+---
 
-Sobre o projeto
+<img width="30" alt="discord-logo-icon-social-media-icon-free-png png" src="https://github.com/user-attachments/assets/8911e8b8-307e-48ad-81d4-279534533b0f" /> **Servidor do projeto no Discord** - https://discord.gg/36T6rh5X 
+
+
+<img width="30" alt="jellyfin-tizen-logo-square" src="https://github.com/user-attachments/assets/d597b076-ff55-4eb6-a59e-28a8c687163b" /> **Use este instalador**  - https://github.com/Apps2Samsung/Apps2Samsung
+
+---
+
+**Sobre o projeto**
 
 O Tizen YouTube Andre Maiqui é uma versão personalizada do
 aplicativo YouTube para Smart TVs Samsung com Tizen. O projeto reúne
@@ -50,7 +57,9 @@ Aviso: projeto independente, de uso pessoal e experimental. Não é
 um aplicativo oficial, não é mantido nem endossado pelo YouTube,
 Google ou Samsung. YouTube é uma marca de seus respectivos titulares.
 
-Principais modificações
+---
+
+**Principais modificações**
 
 🚫 YouTube ADS
 
