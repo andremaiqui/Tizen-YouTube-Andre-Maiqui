@@ -150,3 +150,5 @@ Google ou Samsung. YouTube é uma marca de seus respectivos titulares.
   remoto.
 - **Conta e autenticação:** ajustes relacionados a comandos de login,
   identidade e troca de conta.
+
+Este projeto é baseado em [SushyDev/tizen-youtube](https://github.com/SushyDev/tizen-youtube).
